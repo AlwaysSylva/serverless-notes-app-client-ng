@@ -1,12 +1,16 @@
-<div className="App container">
-  <ul ngbNav [(activeId)]="activeId" class="nav-tabs">
-    <li [ngbNavItem]="1">
-      <a ngbNavLink>First</a>
-    </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink>Second</a>
-    </li>
-  </ul>
+<div class="App container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border rounded">
+    <a class="navbar-brand" routerLink="">Scratch</a>
+    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-toggle="collapse"
+      data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+      <ul class="nav navbar-nav ml-auto justify-content-end">
+        <li class="nav-item"><a class="nav-link" routerLink="signup" routerLinkActive="active">Signup</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="login" routerLinkActive="active">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

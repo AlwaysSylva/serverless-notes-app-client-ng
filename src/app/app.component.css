@@ -1,0 +1,11 @@
+.App {
+  margin-top: 15px;
+}
+
+.App .navbar-brand {
+  font-weight: bold;
+}
+
+.nav-item > .nav-link.active  {
+  background-color: #e7e7e7;
+}
