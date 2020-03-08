@@ -1,4 +1,4 @@
-<div class="App container">
+<div class="App container" *ngIf="!(isAuthenticating$ | async)">
   <nav class="navbar navbar-expand-lg navbar-light bg-light border rounded">
     <a class="navbar-brand" routerLink="">Scratch</a>
     <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-toggle="collapse"
@@ -6,10 +6,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
-      <ul class="nav navbar-nav ml-auto justify-content-end">
+      <ul class="nav navbar-nav ml-auto justify-content-end" *ngIf="!(isAuthenticated$ | async); else isAuthenticated">
         <li class="nav-item"><a class="nav-link" routerLink="signup" routerLinkActive="active">Signup</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="login" routerLinkActive="active">Login</a></li>
       </ul>
+      <ng-template #isAuthenticated>
+        <ul class="nav navbar-nav ml-auto justify-content-end">
+          <li class="nav-item"><a class="nav-link" routerLink="/" (click)="handleLogout()" role="button">Logout</a></li>
+        </ul>
+      </ng-template>
     </div>
   </nav>
   <router-outlet></router-outlet>

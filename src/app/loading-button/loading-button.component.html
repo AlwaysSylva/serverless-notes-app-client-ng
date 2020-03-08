@@ -1,0 +1,4 @@
+<Button class="LoaderButton {{ class }}" [disabled]="!parentForm.valid || (isLoading | async)">
+  <span class="spinning fa fa-refresh" *ngIf="isLoading | async"></span>
+  {{ label }}
+</Button>
