@@ -9,10 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { LoadingButtonComponent } from './loading-button/loading-button.component';
+import { SignupComponent } from './signup/signup.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent},
   { path: '**', component: NotFoundComponent}
 ]
 
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     HomeComponent,
     NotFoundComponent,
     LoginComponent,
-    LoadingButtonComponent
+    LoadingButtonComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

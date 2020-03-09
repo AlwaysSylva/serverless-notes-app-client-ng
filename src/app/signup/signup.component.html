@@ -1,0 +1,28 @@
+<div class="Signup">
+  <form [formGroup]="form" *ngIf="!newUser; else confirmationForm">
+    <div class="form-group form-group-lg">
+      <label for="inputEmail">Email</label>
+      <input id="inputEmail" name="email" class="form-control form-control-lg" formControlName="email">
+    </div>
+    <div class="form-group form-group-lg">
+      <label for="inputPassword">Password</label>
+      <input id="inputPassword" name="password" class="form-control form-control-lg" formControlName="password" type="password">
+    </div>
+    <div class="form-group form-group-lg">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" name="confirm-password" class="form-control form-control-lg" formControlName="confirmPassword" type="password">
+    </div>
+    <app-loading-button [class]="'btn btn-lg btn-block btn-outline-secondary'" [label]="'Signup'" [isLoading]="isLoading"
+      [parentForm]="form" (click)="handleSubmit()"></app-loading-button>
+  </form>
+  <ng-template #confirmationForm>
+    <form [formGroup]="confirmForm">
+      <div class="form-group form-group-lg">
+        <label for="confirmationCode">Confirmation Code</label>
+        <input id="confirmationCode" name="confirmation-code" class="form-control form-control-lg" formControlName="confirmationCode">
+      </div>
+      <app-loading-button [class]="'btn btn-lg btn-block btn-outline-secondary'" [label]="'Signup'" [isLoading]="isLoading"
+        [parentForm]="confirmForm" (click)="handleConfirmationSubmit()"></app-loading-button>
+    </form>
+  </ng-template>
+</div>
